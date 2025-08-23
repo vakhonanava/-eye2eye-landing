@@ -1,38 +1,445 @@
-.App {
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  scroll-behavior: smooth;
+}
+
+section {
+  padding: 80px 20px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.hero {
+  height: 100vh;
+  background: linear-gradient(to bottom, #0f172a, #000);
+  color: white;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.cta-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 24px;
+  background: #2563eb;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+
+.cta-btn:hover {
+  background: #1e40af;
+}
+
+.problem {
+  background: #f9fafb;
+}
+
+.problem ul {
+  list-style: disc;
+  margin: 20px auto;
+  max-width: 400px;
+  text-align: left;
+}
+
+.problem .highlight {
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.achievements .cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  width: 250px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.founders {
+  background: #f9fafb;
+}
+
+.founder-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+.founder img {
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.founder h3 {
+  margin: 10px 0 5px;
+}
+
+.role {
+  color: gray;
+  margin-bottom: 10px;
+}
+
+.contact {
+  background: #1e3a8a;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.footer {
+  background: black;
+  color: gray;
+  padding: 20px;
+  text-align: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.hero-img {
+  max-width: 300px;
+  margin-bottom: 20px;
+}
+
+.card img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.founder img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  border: 3px solid #2563eb;
+}
+
+.card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+}
+
+.image-wrapper {
+  width: 100%;
+  height: 180px;
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 18px;
+  background: #f4f6f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.partners {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.partners h3 {
+  margin-bottom: 30px;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.logos {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+
+.logo-wrapper {
+  width: 180px;       
+  height: 80px;      
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+}
+
+.logo-wrapper img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+
+  transition: filter 0.3s, transform 0.3s;
+}
+
+.logo-wrapper img:hover {
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+
+.image-wrapper IMG_8519.jpeg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;   /* ან center bottom / 50% 30% */
+}
+
+.special-img {
+  object-fit: cover;
+  object-position: center 90%;
+  width: 100%;
+  height: 100%;
+}
+
+
+.problem-section {
+  background: #f9fafb;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.cards-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+  justify-items: center;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  max-width: 350px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  text-align: left;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+}
+
+.card h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.card ul {
+  margin: 12px 0 0;
+  padding-left: 20px;
+  list-style: disc;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 360px; 
+}
+
+.card-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.card-list li {
+  margin-bottom: 6px;
+  font-size: 15px;
+  color: #333;
+  display: flex;
+  align-items: center;
+}
+
+.card-list li::before {
+  content: "✔";
+  color: #2ecc71;
+  margin-right: 8px;
+  font-weight: bold;
+}
+
+
+/* ===== Problem Section ===== */
+.problem-section {
+  padding: 80px 20px;
+  background: #f9f9f9;
+}
+
+.problem-section .section-title {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-bottom: 50px;
+  color: #222;
+}
+
+.problem-cards-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+}
+
+.problem-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  flex: 1 1 300px;
+  max-width: 350px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.problem-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+.problem-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  color: #1e3a8a;
+}
+
+.problem-card p {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.problem-card-list {
+  list-style: disc;
+  padding-left: 20px;
+  color: #333;
+}
+
+.problem-card-list li {
+  margin-bottom: 8px;
+}
+
+
+
+.hero {
+  position: relative;
+  height: 100vh; /* ვიდეო მხოლოდ ერთი ეკრანის ზომაზე */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+}
+
+.hero video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Overlay */
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.45);
+  z-index: 1;
+}
+
+/* ტექსტი */
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* CTA ღილაკი */
+.cta-btn {
+  display: inline-block;
+  background: #1a4bff;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: white;
+  font-size: 1rem;
+  transition: background 0.3s;
+}
+
+.cta-btn:hover {
+  background: #0d3de6;
+}
+
+/* ქვედა ისარი */
+.scroll-down {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  z-index: 2;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
+  40% { transform: translate(-50%, -10px); }
+  60% { transform: translate(-50%, -5px); }
 }
