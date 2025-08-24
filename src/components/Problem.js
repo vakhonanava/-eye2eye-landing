@@ -27,7 +27,7 @@ function Problem() {
           <div className="problem-card">
             <h3>Our Breakthrough</h3>
             <p>
-              Eye2Eye is the <b>first non-digital, portable device</b>
+              Eye2Eye is the <b>first non-digital, portable device </b>
               for effective daily training:
             </p>
             <ul className="problem-card-list">
@@ -50,9 +50,9 @@ function Problem() {
               <b>nerve damage</b> surgery is sometimes required.
             </p>
             <p>
-              Eye2Eye is essential post-operation: it supports neuromuscular
-              rehabilitation, prevents recurrence, and stabilizes binocular
-              vision for long-term success.
+              <b>Eye2Eye</b>  is essential for postoperative
+              recovery supporting neuromuscular rehabilitation, preventing
+              recurrence, and stabilizing binocular vision long-term.
             </p>
           </div>
         </div>

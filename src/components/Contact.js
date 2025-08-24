@@ -1,18 +1,28 @@
+// src/components/Contact.js
 import React from "react";
 
-function Contact() {
+export default function Contact() {
   return (
-    <section id="contact" className="contact">
-      <h2>Get in Touch</h2>
-      <p>
-        Interested in investing or partnering with us? Let’s shape the future of
-        eye care together.
-      </p>
-      <a href="mailto:eye2eyecompany@gmail.com" className="cta-btn">
-        Contact Us
-      </a>
+    <section id="contact" className="contact" aria-label="Get in touch">
+      <div className="contact__inner">
+        <p className="contact__kicker">Let’s talk</p>
+        <h2 className="contact__title">Get in Touch</h2>
+        <p className="contact__subtitle">
+          Interested in investing or partnering with us? Let’s shape the future
+          of eye care together.
+        </p>
+
+        <div className="contact__actions">
+          <a
+            className="btn btn--primary"
+            href="mailto:eye2eyecompany@gmail.com"
+            aria-label="Email Eye2Eye"
+          >
+            Contact Us
+          </a>
+
+        </div>
+      </div>
     </section>
   );
 }
-
-export default Contact;

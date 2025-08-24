@@ -1,3 +1,20 @@
+/* GLOBAL RESET — საჭიროა overflow-ს თავიდან ასაცილებლად */
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;  /* უსაფრთხოებისთვის, სანამ root-კიდეებს ვასწორებთ */
+}
+
+/* ჩამონათვალების ნულოვანი მარჟინ/პადინგი, რომ მენიუ არ გაიწიოს */
+ul, ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -61,7 +78,39 @@ section {
   gap: 20px;
   justify-content: center;
 }
+/* Achievements cards – centered & polished */
+.achievements .card {
+  text-align: center;              /* override old left */
+}
 
+.achievements .card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 14px 0 8px;
+}
+
+.achievements .card h3::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 3px;
+  margin: 8px auto 0;
+  background: #1e3a8a;
+  opacity: 0.15;
+  border-radius: 2px;
+}
+
+.achievements .card p {
+  margin: 6px auto 0;              /* centers under the title */
+  max-width: 260px;                /* neat line length */
+  line-height: 1.55;
+  color: #555;
+}
+
+/* ცოტა უფრო ჰაეროვანი გახდეს ბარათებს შორის */
+.achievements .cards {
+  gap: 28px;
+}
 .card {
   background: white;
   border: 1px solid #ddd;
@@ -96,22 +145,195 @@ section {
   margin-bottom: 10px;
 }
 
-.contact {
-  background: #1e3a8a;
-  color: white;
+/* --- Contact (full-bleed, clean) --- */
+#contact { margin: 0; padding: 0; }
+
+.contact{
+  --bg1:#1e3a8a;
+  --bg2:#233a9c;
+  position: relative;
+  background: linear-gradient(180deg, var(--bg1) 0%, var(--bg2) 100%);
+  color:#fff;
+  margin:0;
+  padding: clamp(32px, 6vw, 72px) 0; /* ვერტიკალური დაშორება, გვერდებზე 0 */
+  overflow:hidden;
 }
 
-.footer {
-  background: black;
-  color: gray;
-  padding: 20px;
+
+
+/* Full-bleed სექცია, ზღვარი/გაპები – ნულზე */
+section#contact { margin: 0; padding: 0; }
+
+/* --- CONTACT --- */
+.contact{
+  --brand: #1e3a8a;                /* ძირითადი ლურჯი */
+  --brand2: #233a97;               /* ოდნავ მუქი ლურჯი */
+  --onbrand: #fff;
+
+  position: relative;
+  background: linear-gradient(180deg, var(--brand) 0%, var(--brand2) 100%);
+  color: var(--onbrand);
+  margin: 0;
+  padding: clamp(28px, 5vw, 56px) 0;   /* ვერტიკალური padding, გვერდებზე 0 */
+  overflow: hidden;
+}
+
+/* ზედა „შუქის“ შტრიხი, რომ ბლოკი ცოცხლად გამოიყურებოდეს */
+.contact::before{
+  content:"";
+  position:absolute;
+  inset: 0 0 auto 0;
+  height: 8px;
+  background: linear-gradient(90deg, rgba(255,255,255,.18), rgba(255,255,255,0));
+  pointer-events:none;
+}
+
+/* შიდა კონტეინერი + layout */
+.contact__inner{
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1fr;   /* მობილზე—ერთი სვეტი */
+  gap: 14px;
   text-align: center;
 }
 
+/* დიდ ეკრანებზე მარცხნივ ტექსტი, მარჯვნივ ღილაკები */
+@media (min-width: 900px){
+  .contact__inner{
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    text-align: left;
+  }
+  .contact__actions{ justify-self: end; }
+}
+
+
+/* ==== CONTACT (full-bleed banner) ==== */
+
+/* wrapper – ნულოვანი გეპები */
+section#contact { margin: 0; padding: 0; }
+
+/* ლურჯი ბარი გვერდების გარეშე */
+.contact{
+  --contact-bg:#1e3a8a;
+  --contact-fg:#ffffff;
+  background: linear-gradient(180deg, var(--contact-bg) 0%, #1b3280 100%);
+  color: var(--contact-fg);
+  margin: 0;
+  padding: clamp(28px, 6vw, 56px) 0;   /* მხოლოდ ზედ/ქვემოთ */
+  border-top: 1px solid rgba(255,255,255,.06);
+}
+
+/* შიგთავსი ცენტრში, ფართო კონტეინერი */
+.contact__inner{
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+  text-align: center;
+}
+
+/* პატარა ზედა ტექსტი */
+.contact__kicker{
+  margin: 0 0 6px;
+  font-size: .85rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  opacity: .85;
+}
+
+/* დიდი სათაური */
+.contact__title{
+  margin: 0 0 10px;
+  font-weight: 800;
+  font-size: clamp(22px, 3.4vw, 36px);
+  line-height: 1.15;
+}
+
+/* ქვეწარწერა */
+.contact__subtitle{
+  margin: 0 auto clamp(14px, 3vw, 22px);
+  max-width: 60ch;
+  font-size: clamp(.95rem, 1.2vw, 1.05rem);
+  opacity: .95;
+}
+
+/* ღილაკები */
+.contact__actions{
+  display: inline-flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+/* საერთო ღილაკი */
+.btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 42px;
+  padding: 0 18px;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform .1s ease, box-shadow .2s ease, background-color .2s;
+}
+
+/* ძირითადი */
+.btn--primary{
+  background: #2563eb;
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(37,99,235,.28);
+}
+.btn--primary:hover{ transform: translateY(-1px); }
+
+/* Ghost ვარიანტი */
+.btn--ghost{
+  background: rgba(255,255,255,.12);
+  color: #fff;
+  backdrop-filter: blur(3px);
+  border: 1px solid rgba(255,255,255,.24);
+}
+.btn--ghost:hover{ background: rgba(255,255,255,.18); }
+
+/* მცირე ეკრანებზე ოდნავ მჭიდრო */
+@media (max-width: 640px){
+  .contact{ padding: 28px 0; }
+  .btn{ height: 40px; padding: 0 16px; }
+}
+
+
+
+
+
+.contact{ padding: clamp(28px, 6vw, 56px) 0 clamp(34px, 7vw, 72px); }
+
+
+
+
+
+
+
+
+
+
+
+
+/* Footer – შეერთდეს contact-ს, გვერდებზე indent რომ არ გაგიკეთოს */
+footer.footer{
+  background:#000;
+  color:#9aa3af;
+  margin:0;              /* განსაკუთრებით margin-top: 0 */
+  padding: 20px 0;       /* 116px-იანი გვერდითი padding წაიღო ზოლიანი გარჩევა */
+  text-align:center;
+}
 .hero-img {
   max-width: 300px;
   margin-bottom: 20px;
 }
+
 
 .card img {
   width: 80px;
@@ -443,3 +665,1187 @@ section {
   40% { transform: translate(-50%, -10px); }
   60% { transform: translate(-50%, -5px); }
 }
+
+
+.roadmap {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.roadmap h2 {
+  font-size: 2rem;
+  margin-bottom: 50px;
+  color: #122e2b;
+}
+
+.roadmap-container {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.roadmap-container::before {
+  content: "";
+  position: absolute;
+  top: 40px; /* ხაზი მიდის წლების ქვეშ */
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: #47d45a;
+  z-index: 1;
+}
+
+.roadmap-step {
+  text-align: center;
+  width: 25%; /* ოთხ ეტაპზე გათვლილი */
+  position: relative;
+}
+
+.roadmap-year {
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #122e2b;
+}
+
+.roadmap-dot {
+  width: 20px;
+  height: 20px;
+  background: #47d45a;
+  border-radius: 50%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  border: 3px solid white;
+}
+
+.roadmap-event {
+  margin-top: 20px;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+/* ძირითადი სტილი */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between; /* ლოგო მარცხნივ, მენიუ მარჯვნივ */
+  align-items: center;
+  padding: 15px 40px;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(6px);
+  z-index: 1000;
+}
+
+/* როდესაც ნავბარი ჩანს */
+.navbar.show {
+  top: 0;
+}
+
+/* როდესაც ნავბარი ქრება */
+.navbar.hide {
+  top: -100px; /* მაღლა იძირება */
+}
+
+/* ლოგოს სტილი */
+.navbar-logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+/* მენიუს ლინკები */
+.navbar-links {
+  display: flex;
+  gap: 25px;
+  margin-left: auto; /* მარჯვნივ გასწორება */
+}
+
+.navbar-links li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar-links li a:hover {
+  color: #477bd4; /* მწვანე ჰოვერზე */
+}
+
+/* Responsiveness - პატარა ეკრანებზე */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 10px 20px;
+  }
+
+  .navbar-links {
+    gap: 15px;
+  }
+
+  .navbar-links li a {
+    font-size: 14px;
+  }
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: .5px;
+}
+
+.navbar-brand img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  display: block;
+}
+
+.navbar-brand img {
+  width: 32px;        /* თანაბარი მხარეები */
+  height: 32px;
+  border-radius: 50%; /* წრე */
+  object-fit: cover;  /* რომ არ დეფორმირდეს */
+}
+
+.navbar-links { list-style: none; padding: 0; margin-left: auto; display:flex; gap:25px; }
+
+.roadmap {
+  padding: 70px 20px 40px;
+  text-align: center;
+}
+
+.roadmap h2 {
+  font-size: 2rem;
+  margin-bottom: 48px;
+  color: #122e2b;
+}
+
+/* Line: ქვეშ ნაცრისფერი, ზემოდან მწვანე progress, რომელიც იხატება */
+.roadmap-container {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.roadmap-container::before {
+  content: "";
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: #e5e7eb;          /* ნაცრისფერი ბაზა */
+  border-radius: 2px;
+  z-index: 1;
+}
+
+.roadmap-container::after {
+  content: "";
+  position: absolute;
+  top: 40px;
+  left: 0;
+  height: 4px;
+  width: 0;                      /* ანიმაციამდე 0 */
+  background: linear-gradient(90deg, #22c55e, #16a34a);
+  border-radius: 2px;
+  z-index: 2;
+  transition: width 1.6s ease;
+}
+
+/* როცა სექცია გამოჩნდა, progress ხაზი ივსება */
+.roadmap.active .roadmap-container::after { width: 100%; }
+
+/* თითოეული საფეხურის გამოჩენა "ქვემოდან" + სტაგერი */
+.roadmap-step {
+  width: 33.333%;
+  text-align: center;
+  position: relative;
+  z-index: 3;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: all .55s ease;
+}
+
+.roadmap.active .roadmap-step { opacity: 1; transform: none; }
+.roadmap.active .roadmap-step:nth-child(1) { transition-delay: .20s; }
+.roadmap.active .roadmap-step:nth-child(2) { transition-delay: .35s; }
+.roadmap.active .roadmap-step:nth-child(3) { transition-delay: .50s; }
+
+.roadmap-year {
+  font-weight: 700;
+  margin-bottom: 18px;
+  color: #122e2b;
+}
+
+/* პულსირებადი წერტილი */
+.roadmap-dot {
+  width: 18px;
+  height: 18px;
+  background: #22c55e;
+  border-radius: 50%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 4;
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 0 rgba(34, 197, 94, .6);
+  transition: transform .25s ease;
+}
+
+.roadmap.active .roadmap-dot {
+  animation: pulse 1.8s ease-out infinite;
+}
+
+.roadmap-step:hover .roadmap-dot { transform: scale(1.1); }
+
+/* აღწერის ჰოვერ-ეფექტი */
+.roadmap-event {
+  margin-top: 16px;
+  font-size: 0.95rem;
+  color: #374151;
+  max-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: color .25s ease;
+}
+
+.roadmap-step:hover .roadmap-event { color: #111827; }
+
+@keyframes pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(34,197,94,.6); }
+  70%  { box-shadow: 0 0 0 12px rgba(34,197,94,0); }
+  100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .roadmap-container { gap: 28px; }
+  .roadmap-step { width: 100%; }
+  .roadmap-container { flex-direction: column; }
+  .roadmap-container::before,
+  .roadmap-container::after {
+    top: auto; left: 40px; right: auto; width: 4px; height: 0;
+  }
+  .roadmap-container::before { height: calc(100% - 20px); }
+  .roadmap.active .roadmap-container::after { height: calc(100% - 20px); }
+  .roadmap-step { text-align: left; padding-left: 60px; }
+  .roadmap-dot { margin: 0; position: absolute; left: 32px; top: 40px; }
+  .roadmap-year { margin-left: 0; }
+}
+/* ===== Investor-grade Roadmap (rmx) ===== */
+:root {
+  --rmx-accent: #16a34a;         /* მწვანე აქცენტი */
+  --rmx-accent-2: #0ea5e9;       /* ლურჯის ელფერი გრადიანტში */
+  --rmx-ink: #0f172a;            /* სამუშაო ტექსტი */
+  --rmx-muted: #64748b;          /* მეორადი ტექსტი */
+  --rmx-line: #e5e7eb;           /* timeline base */
+  --rmx-card-bg: #ffffff;
+  --rmx-shadow: 0 10px 30px rgba(2, 6, 23, 0.08);
+}
+
+/* სექცია */
+.rmx {
+  scroll-margin-top: 84px; /* fixed navbar offset */
+  padding: 72px 20px 48px;
+  text-align: center;
+  background: transparent;
+}
+.rmx-title {
+  font-size: clamp(28px, 2.4vw, 36px);
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  color: var(--rmx-ink);
+  margin-bottom: 36px;
+}
+
+/* ტრეკი */
+.rmx-track {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 84px 10px; /* ზედ/ქვედა სივრცე ბარათებისთვის */
+}
+.rmx-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 2px;
+  transform: translateY(-50%);
+  background: var(--rmx-line);
+  border-radius: 999px;
+}
+.rmx-fill {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  height: 2px;
+  transform: translateY(-50%) scaleX(0);
+  transform-origin: left;
+  right: 0;
+  background: linear-gradient(90deg, var(--rmx-accent), var(--rmx-accent-2));
+  border-radius: 999px;
+  transition: transform 1200ms cubic-bezier(.22,1,.36,1);
+}
+.rmx-fill.is-on { transform: translateY(-50%) scaleX(1); }
+
+/* ელემენტები */
+.rmx-items {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+.rmx-item {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+.rmx-item.show { opacity: 1; transform: none; }
+.rmx-item.show:nth-child(2) { transition-delay: .12s; }
+.rmx-item.show:nth-child(3) { transition-delay: .24s; }
+
+/* წერტილი ხაზზე */
+.rmx-dot {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border: 3px solid var(--rmx-accent);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(22, 163, 74, 0.12);
+  z-index: 2;
+}
+
+/* ბარათი */
+.rmx-card {
+  position: absolute;
+  left: 50%;
+  width: 320px;
+  max-width: 86vw;
+  background: var(--rmx-card-bg);
+  border: 1px solid rgba(2,6,23,.06);
+  border-radius: 14px;
+  box-shadow: var(--rmx-shadow);
+  padding: 16px 18px;
+  text-align: left;
+  transform: translateX(-50%);
+}
+.rmx-item.top .rmx-card    { bottom: calc(50% + 26px); }
+.rmx-item.bottom .rmx-card { top:    calc(50% + 26px); }
+
+/* წვრილი ‘ღერო’ წერტილიდან ბარათამდე */
+.rmx-item::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 2px;
+  background: var(--rmx-accent);
+  transform: translateX(-50%);
+}
+.rmx-item.top::after {
+  bottom: 50%;
+  height: 26px;
+}
+.rmx-item.bottom::after {
+  top: 50%;
+  height: 26px;
+}
+
+/* ბარათის შიგთავსი */
+.rmx-year {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 14px;
+  color: var(--rmx-ink);
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  padding: 4px 10px;
+  border-radius: 999px;
+  margin-bottom: 6px;
+}
+.rmx-heading {
+  font-weight: 700;
+  color: var(--rmx-ink);
+  margin-bottom: 4px;
+}
+.rmx-list {
+  margin: 0;
+  padding-left: 16px;
+  color: var(--rmx-muted);
+  font-size: 14.5px;
+  line-height: 1.45;
+}
+.rmx-list li { margin: 2px 0; }
+
+/* Hover polish */
+.rmx-card:hover { transform: translateX(-50%) translateY(-2px); box-shadow: 0 16px 40px rgba(2,6,23,.12); }
+
+/* —— Mobile: ვერტიკალური ტაიმლაინი —— */
+@media (max-width: 768px) {
+  .rmx-track { padding: 20px 0 20px 36px; }
+  .rmx-line,
+  .rmx-fill {
+    left: 22px;
+    right: auto;
+    width: 2px;
+    height: calc(100% - 20px);
+    top: 20px;
+    transform: none;
+  }
+  .rmx-fill { transform: scaleY(0); transform-origin: top; }
+  .rmx-fill.is-on { transform: scaleY(1); }
+  .rmx-items { flex-direction: column; gap: 28px; }
+  .rmx-item { min-height: 92px; }
+  .rmx-dot { left: 22px; top: 12px; transform: none; }
+  .rmx-item::after { display: none; }
+  .rmx-card { position: relative; left: 0; transform: none; width: auto; max-width: 100%; }
+  .rmx-item.top .rmx-card,
+  .rmx-item.bottom .rmx-card { top: auto; bottom: auto; }
+}
+
+/* Roadmap card: center everything */
+.rmx-card {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rmx-year { margin-bottom: 8px; }
+.rmx-heading { text-align: center; }
+
+.rmx-list {
+  list-style: none;   /* ამოიღებს დისკებს; თუ გინდა დარჩეს, ნახე ვარიანტი B */
+  padding-left: 0;
+  margin: 6px 0 0;
+  text-align: center;
+}
+.rmx-list li { margin: 4px 0; }
+
+
+/* --- Blogs --- */
+.blogs {
+  padding: 90px 20px;
+  background: #ffffff;
+}
+
+.blogs .section-title {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 34px;
+}
+
+.blog-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 22px;
+}
+
+.blog-card {
+  position: relative;
+  background: #fff;
+  border: 1px solid #eef1f6;
+  border-radius: 16px;
+  padding: 18px 18px 14px;
+  box-shadow: 0 8px 28px rgba(21, 24, 35, 0.06);
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.blog-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(21, 24, 35, 0.10);
+}
+
+.blog-topline {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  background: linear-gradient(90deg, #18a058, #4ade80);
+}
+
+.blog-header {
+  display: grid;
+  grid-template-columns: 42px 1fr auto;
+  align-items: center;
+  column-gap: 10px;
+  margin-bottom: 8px;
+}
+
+.blog-emoji {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+  background: #f3faf6;
+  border: 1px solid #e4f3ea;
+  border-radius: 10px;
+}
+
+.blog-title {
+  margin: 0;
+  text-align: left;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.blog-meta {
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+.blog-excerpt {
+  color: #334155;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  margin: 6px 2px 8px;
+  text-align: left;
+}
+
+.blog-details {
+  margin-top: 6px;
+}
+
+.blog-summary {
+  cursor: pointer;
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #0f766e;
+  background: #ecfeff;
+  border: 1px solid #cffafe;
+  transition: background 0.2s;
+}
+
+.blog-summary:hover {
+  background: #e6fffb;
+}
+
+.blog-more {
+  margin-top: 10px;
+  text-align: left;
+  color: #334155;
+}
+
+.blog-more ul {
+  margin: 8px 0 0 18px;
+}
+
+.blog-disclaimer {
+  max-width: 850px;
+  margin: 22px auto 0;
+  font-size: 0.85rem;
+  color: #6b7280;
+  text-align: center;
+}
+
+/* small screens */
+@media (max-width: 640px) {
+  .blogs { padding: 70px 16px; }
+  .blog-grid { gap: 16px; }
+}
+/* არასდროს გვქონდეს ჰორიზონტალური სკროლი */
+html, body { width: 100%; overflow-x: hidden; }
+
+/* სექციების padding ყველასთვის, მაგრამ .hero-ს არა */
+section { padding: 80px 20px; text-align: center; }
+.hero { padding: 0; }        /* ვიდეოს გარშემო თეთრი ზოლი გაქრება */
+
+/* Navbar brand + ლინკ-ღილაკები */
+.navbar-brand { display:flex; align-items:center; gap:10px; color:#fff; text-decoration:none; }
+.brand-logo { width:28px; height:28px; border-radius:50%; object-fit:cover; }
+
+.nav-link {
+  background:none; border:0; padding:0; margin:0;
+  color:#fff; cursor:pointer; font:inherit; text-decoration:none;
+}
+.nav-link:hover { color:#47d45a; }
+
+/* გარე wrapper-ს მოაშორე padding */
+#hero { padding: 0 !important; }
+
+/* ========== BLOGS (scoped) ========== */
+.blogs {
+  padding: 90px 20px;
+  background: #fff;
+}
+
+.blogs .section-title {
+  text-align: center;
+  font-size: clamp(28px, 2.2vw, 36px);
+  font-weight: 800;
+  letter-spacing: .2px;
+  color: #0f172a;
+  margin: 0 0 34px;
+}
+
+/* grid */
+.blogs .blog-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 22px;
+}
+
+/* card */
+.blogs .blog-card {
+  position: relative;
+  background: #fff;
+  border: 1px solid #eef1f6;
+  border-radius: 16px;
+  padding: 0 16px 16px;
+  box-shadow: 0 8px 28px rgba(21,24,35,.06);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.blogs .blog-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(21,24,35,.10);
+}
+
+/* top accent line */
+.blogs .blog-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  background: linear-gradient(90deg, #16a34a, #22c55e);
+}
+
+/* cover (keeps aspect, zoom on hover) */
+.blogs .blog-cover-link {
+  display: block;
+  margin: 14px -16px 10px;  /* edge-to-edge image inside card */
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  overflow: hidden;
+}
+
+.blogs .blog-cover {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  transform: scale(1);
+  transition: transform .35s ease;
+}
+
+.blogs .blog-card:hover .blog-cover {
+  transform: scale(1.04);
+}
+
+/* header */
+.blogs .blog-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  column-gap: 12px;
+  margin: 6px 0 4px;
+}
+
+.blogs .blog-title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.25;
+  text-align: left;
+}
+
+.blogs .blog-meta {
+  font-size: .82rem;
+  color: #64748b;
+}
+
+/* excerpt */
+.blogs .blog-excerpt {
+  color: #334155;
+  font-size: .95rem;
+  line-height: 1.45;
+  margin: 4px 0 10px;
+  text-align: left;
+}
+
+/* read more */
+.blogs .blog-actions { text-align: left; }
+
+.blogs .blog-readmore {
+  display: inline-block;
+  font-weight: 600;
+  color: #1d4ed8;
+  text-decoration: none;
+  padding: 6px 0;
+  transition: color .2s ease;
+}
+
+.blogs .blog-readmore:hover { color: #0b3ecf; }
+
+/* disclaimer */
+.blogs .blog-disclaimer {
+  max-width: 860px;
+  margin: 22px auto 0;
+  font-size: .86rem;
+  color: #6b7280;
+  text-align: center;
+}
+
+/* responsive tweaks */
+@media (max-width: 640px) {
+  .blogs { padding: 70px 16px; }
+  .blogs .blog-grid { gap: 16px; }
+  .blogs .blog-title { font-size: 1rem; }
+  .blogs .blog-excerpt { font-size: .92rem; }
+}
+
+/* ========== BLOGS (safe override, scoped) ========== */
+.blogs {
+  padding: 90px 20px;
+  background: #fff;
+}
+
+.blogs .section-title {
+  margin: 0 auto 28px;
+  max-width: 1100px;
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: .2px;
+}
+
+.blogs .section-title .accent {
+  color: #f15dd1; 
+}
+
+/* ბარათების გრიდი */
+.blogs .blog-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 26px;
+}
+
+/* ბარათი */
+.blogs .blog-card {
+  position: relative;
+  border: 1px solid #e8edf5;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.06);
+  overflow: hidden;                /* ჭარბის მოჭრა (სურათისთვის) */
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.blogs .blog-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(34, 81, 191, 0.1);
+}
+
+/* ზედა თხელი ხაზი (accent) */
+.blogs .blog-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: linear-gradient(90deg, #ea6f92, #403de0);
+}
+
+/* კავერი — მთავარია ზომის კონტროლი */
+.blogs .blog-cover {
+  display: block;
+  width: 100%;
+  height: 200px;                   /* ფიქსირებული ვიზუალური სიმაღლე */
+  object-fit: cover;               /* რომ არ გაიწელოს */
+  object-position: center;
+}
+
+/* შიდა შინაარსი */
+.blogs .blog-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 18px 6px;
+}
+
+.blogs .blog-title {
+  margin: 0;
+  font-size: 1.12rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: #0f172a;
+  text-align: left;
+}
+
+.blogs .blog-meta {
+  white-space: nowrap;
+  font-size: .82rem;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+.blogs .blog-excerpt {
+  padding: 0 18px 8px;
+  margin: 6px 0 0;
+  color: #334155;
+  font-size: .95rem;
+  line-height: 1.45;
+  text-align: left;
+}
+
+/* ქვედა ზონა – "Read article" */
+.blogs .blog-actions {
+  padding: 0 18px 16px;
+  text-align: left;
+}
+
+.blogs .blog-readmore {
+  color: #1d4ed8;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.blogs .blog-readmore:hover {
+  text-decoration: underline;
+}
+
+/* პატარა ეკრანები */
+@media (max-width: 640px) {
+  .blogs { padding: 70px 16px; }
+  .blogs .blog-grid { gap: 18px; }
+  .blogs .blog-cover { height: 200px; }
+}
+
+/* ===== Blog detail (scoped, რომ სხვაგან არაფერი აირიოს) ===== */
+.blog-detail {
+  --ink: #0f172a;
+  --muted: #475569;
+  --border: #e5e7eb;
+  --shadow: 0 12px 40px rgba(2,6,23,.08);
+  color: var(--ink);
+}
+
+/* Hero */
+.blog-hero {
+  position: relative;
+  height: clamp(260px, 42vw, 420px);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  margin: 16px 16px 28px;
+}
+.blog-hero img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover;
+  filter: saturate(1.05);
+}
+.blog-hero::after{
+  content:"";
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,.35), rgba(0,0,0,.35));
+}
+.blog-hero .hero-inner{
+  position: absolute; inset: 0;
+  display: grid; place-content: center;
+  text-align: center; padding: 0 20px;
+  z-index: 1; color: #fff;
+}
+.blog-hero h1{
+  margin: 0 0 6px;
+  font-weight: 800;
+  letter-spacing: .2px;
+  font-size: clamp(26px, 3.6vw, 40px);
+  text-shadow: 0 6px 30px rgba(0,0,0,.35);
+}
+.blog-meta{
+  margin: 0; opacity: .9; font-weight: 600;
+}
+
+/* Back button */
+.blog-back {
+  position: absolute; top: 12px; left: 16px; z-index: 2;
+  background: rgba(255,255,255,.85);
+  border: 1px solid rgba(0,0,0,.08);
+  color: #0f172a;
+  padding: 8px 12px; border-radius: 10px;
+  backdrop-filter: blur(6px);
+  display: inline-flex; gap: 8px; align-items: center;
+  font-weight: 600; text-decoration: none;
+  transition: transform .15s ease, background .15s ease;
+}
+.blog-back:hover { background:#fff; transform: translateY(-1px); }
+
+/* Content container */
+.blog-container {
+  max-width: 880px;
+  margin: 0 auto 80px;
+  padding: 0 20px;
+}
+
+/* Typography */
+.blog-content {
+  white-space: pre-line;           /* პატივს სცემს \n ხაზს—არ გჭირდება <p> ი */
+  font-size: clamp(16px, 1.15vw, 18px);
+  line-height: 1.8;
+  color: var(--ink);
+}
+.blog-content p { margin: 0 0 14px; }
+.blog-content strong { font-weight: 800; }
+
+.blog-content h2, .blog-content h3 {
+  margin: 30px 0 12px;
+  line-height: 1.25;
+  font-weight: 800;
+  letter-spacing: .2px;
+}
+.blog-content h2 { font-size: clamp(22px, 2.2vw, 28px); }
+.blog-content h3 { font-size: clamp(18px, 1.8vw, 22px); }
+
+.blog-content hr {
+  border: 0; height: 1px; background: var(--border);
+  margin: 24px 0;
+}
+
+/* ლისტები და ბლოკქოუთი */
+.blog-content ul { padding-left: 1.2rem; margin: 0 0 12px; }
+.blog-content li { margin: 6px 0; color: var(--muted); }
+.blog-content blockquote{
+  margin: 18px 0; padding: 14px 16px;
+  border-left: 4px solid #22c55e;
+  background: #f8fff9; border-radius: 8px;
+  color: #14532d;
+}
+
+/* Callout ბოქსები (ნებაყოფლობით) */
+.callout{
+  margin: 20px 0; padding: 14px 16px; border-radius: 12px;
+  border: 1px solid var(--border); background: #f8fafc;
+}
+.callout.success{ border-color:#bbf7d0; background:#f0fdf4; color:#065f46; }
+.callout.warn   { border-color:#fde68a; background:#fffbeb; color:#92400e; }
+.callout.danger { border-color:#fecaca; background:#fff1f2; color:#7f1d1d; }
+
+/* სურათის ქვევით ქეპშენი */
+figure { margin: 22px 0; }
+figure img { width: 100%; border-radius: 12px; box-shadow: var(--shadow); }
+figcaption{
+  font-size: .9rem; color: var(--muted); text-align: center; margin-top: 8px;
+}
+
+/* პატარა ეკრანებზე */
+@media (max-width: 640px){
+  .blog-hero{ margin: 10px 10px 22px; border-radius: 12px; }
+  .blog-back{ top:10px; left:10px; }
+}
+
+
+/* ბლოგის სათაურები — მუქი და მკაფიო */
+.blog-body h1,
+.blog-body h2,
+.blog-body h3 {
+  color: #0f172a;        /* შავი-ლურჯი (შავი იმიჯით) */
+  font-weight: 800;      /* ძალიან მუქი */
+  letter-spacing: 0.2px;
+  margin: 1.25rem 0 0.5rem;
+}
+
+/* სურვილის შემთხვევაში სექციის ქვე-სათაურები ოდნავ უფრო მცირე */
+.blog-body h3 {
+  font-weight: 700;
+}
+
+/* პარაგრაფები, რომ კონტრასტი იყოს კარგიც */
+.blog-body p,
+.blog-body li {
+  color: #374151;
+  line-height: 1.7;
+}
+
+
+/* Blog detail hero */
+.blog-hero {
+  position: relative;
+  width: 100%;
+  /* A) სიმაღლე რომელიც ეკრანის სიგანეზე პროპორციულად იზრდება */
+  height: clamp(240px, 35vw, 460px);
+
+  /* B) თუ გინდა ფიქსირებული პროპორცია, ამოდი-ჩართე შემდეგი 3 ხაზი
+  aspect-ratio: 16 / 6;
+  height: auto;
+  min-height: 240px;
+  */
+
+  background: #0b1220;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.blog-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;       /* მთლიანად ჩანდეს სურათი */
+  object-position: center;
+  display: block;
+}
+
+/* ტექსტის წაკითხვადობა */
+.blog-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,.35), rgba(0,0,0,0) 60%);
+  pointer-events: none;
+}
+
+/* ტექსტის კონტეინერი */
+.blog-hero .hero-inner {
+ position: absolute; inset: 0;
+  display: grid;
+  /* ელემენტი იყოს ქვემოთ და ცენტრში */
+  align-items: end;
+  justify-items: center;
+  text-align: center;
+  padding: 0 200px 8px; /* ქვედა ოდნავ დიდი პადინგი */
+}
+
+.blog-hero .hero-inner h1 {
+  margin: 0;
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: .3px;
+  font-size: clamp(22px, 3.2vw, 40px);
+  text-shadow: 0 2px 18px rgba(0,0,0,.35);
+}
+
+.blog-hero .blog-meta {
+  margin-top: 8px;
+  color: #e5e7eb;
+  font-size: .95rem;
+}
+
+/* Back ღილაკი */
+.blog-back {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 3;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,.4);
+  background: rgba(0,0,0,.35);
+  color: #fff;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+}
+.blog-back:hover { background: rgba(0,0,0,.5); }
+
+.blog-head{
+  max-width: 980px;
+  margin: 16px auto 0;
+  padding: 0 20px;
+  text-align: left; /* ან center, როგორც გინდა */
+}
+.blog-head h1{ margin:0 0 6px; font-weight:800; }
+
+/* Hero – სურათი მთლიანად ჩანდეს, ტექსტი აღარ ფარავს */
+/* ქავერი */
+.blog-hero {
+  position: relative;
+  width: 100%;
+  height: clamp(240px, 35vw, 460px);
+  background: #0b1220;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.blog-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;   /* მთლიანი სურათი ჩანდეს */
+  object-position: center;
+  display: block;
+}
+
+/* სათაური ცენტრში, Back მარცხნივ */
+.blog-header{
+  position: relative;
+  max-width: 60px;           /* კონტენტის ჯანსაღი სიგანე */
+  margin: clamp(20px,4vw,40px) auto 0;
+  padding: 122 20px;
+  text-align: center;         /* სათაური და ქვე-ტექსტი შუაში */
+}
+
+.blog-title{
+  margin: 0 auto 6px;
+  font-weight: 800;
+  font-size: clamp(28px, 4.6vw, 44px);
+  line-height: 1.12;
+  max-width: 26ch;            /* ლამაზად გადატეხილი ხაზები, აღარ იქნება ზედმეტად ვიწრო */
+  text-wrap: balance;         /* თანამედროვე ბრაუზერებში უკეთ ბალანსდება ხაზები */
+}
+
+.blog-meta{
+  margin: 4px 0 0;
+  font-size: .95rem;
+  color: #697586;
+}
+
+/* Back ღილაკი ყოველთვის მარცხნივ, სათაურისგან დამოუკიდებლად */
+.blog-back{
+  position: absolute;
+  left: 1px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+/* მცირე ეკრანები — Back ოდნავ მაღლა, რომ სათაურს არ ეჯახოს */
+@media (max-width: 640px){
+  .blog-header{ padding-top: 36px; }
+  .blog-back{
+    top: 0;
+    transform: none;
+  }
+}
+
+
