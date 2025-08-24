@@ -25,7 +25,6 @@ function Landing() {
       <section id="achievements">
         <Achievements />
       </section>
-
       <section id="roadmap">
         <Roadmap />
       </section>
@@ -33,10 +32,13 @@ function Landing() {
         <Founders />
       </section>
 
+      {/* აი აქ ჩასვი Blogs */}
       <section id="blogs">
         <Blogs />
-      <section id="contact"></section>
-      <Contact />
+      </section>
+
+      <section id="contact">
+        <Contact />
       </section>
     </>
   );

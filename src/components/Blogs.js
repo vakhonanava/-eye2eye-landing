@@ -11,7 +11,7 @@ export default function Blogs() {
             Latest <span className="accent">Blog</span> Posts
           </h2>
 
-          {/* თუ ეს გვერდი უკვე /blogs-ზეა, შეგიძლია ეს ღილაკი საერთოდ არ უნდოდე */}
+         
           <a href="#blogs" className="view-all">
             VIEW ALL
           </a>

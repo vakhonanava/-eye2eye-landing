@@ -1,11 +1,11 @@
 // src/components/Blog.jsx
 import React, { useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import blogs from "../data/blogs";
 
 export default function Blog() {
   const { slug } = useParams();
-  const navigate = useNavigate();
+
 
   const post = blogs.find((b) => b.slug === slug);
 

@@ -1806,13 +1806,13 @@ figcaption{
   display: block;
 }
 
-/* სათაური ცენტრში, Back მარცხნივ */
+
 .blog-header{
   position: relative;
-  max-width: 60px;           /* კონტენტის ჯანსაღი სიგანე */
+  max-width: 60px;       
   margin: clamp(20px,4vw,40px) auto 0;
   padding: 122 20px;
-  text-align: center;         /* სათაური და ქვე-ტექსტი შუაში */
+  text-align: center;         
 }
 
 .blog-title{
@@ -1820,8 +1820,8 @@ figcaption{
   font-weight: 800;
   font-size: clamp(28px, 4.6vw, 44px);
   line-height: 1.12;
-  max-width: 26ch;            /* ლამაზად გადატეხილი ხაზები, აღარ იქნება ზედმეტად ვიწრო */
-  text-wrap: balance;         /* თანამედროვე ბრაუზერებში უკეთ ბალანსდება ხაზები */
+  max-width: 26ch;           
+  text-wrap: balance;      
 }
 
 .blog-meta{
