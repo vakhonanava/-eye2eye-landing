@@ -5,9 +5,10 @@ export default function Navbar() {
   const navigate = useNavigate();
   const location = useLocation();
   const [show, setShow] = useState(true);
+  const [menuOpen, setMenuOpen] = useState(false);
   const lastScroll = useRef(0);
 
-  // აჩინოს/დამალოს navbar scroll-ზე
+  // Hide/show navbar on scroll
   useEffect(() => {
     const onScroll = () => {
       const y = window.pageYOffset || document.documentElement.scrollTop;
@@ -18,20 +19,19 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // რბილი స్కროლი კონკრეტულ სექციაზე
   const scrollToId = (id) => {
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
-  // თუ არა ვართ ლენდინგზე — დაგვაბრუნე "/", მერე სქროლი
   const go = (id) => {
     if (location.pathname !== "/") {
       navigate("/");
-      setTimeout(() => scrollToId(id), 0); // დაელოდე DOM-ს
+      setTimeout(() => scrollToId(id), 0);
     } else {
       scrollToId(id);
     }
+    setMenuOpen(false); // close menu after click
   };
 
   return (
@@ -41,7 +41,18 @@ export default function Navbar() {
         <span>Eye2Eye</span>
       </a>
 
-      <ul className="navbar-links">
+      {/* Burger icon */}
+      <button
+        className={`burger ${menuOpen ? "open" : ""}`}
+        onClick={() => setMenuOpen(!menuOpen)}
+        aria-label="Toggle navigation"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul className={`navbar-links ${menuOpen ? "active" : ""}`}>
         <li>
           <button className="nav-link" onClick={() => go("hero")}>
             Home
@@ -63,7 +74,11 @@ export default function Navbar() {
           </button>
         </li>
         <li>
-          <Link className="nav-link" to="/blogs">
+          <Link
+            className="nav-link"
+            to="/blogs"
+            onClick={() => setMenuOpen(false)}
+          >
             Blogs
           </Link>
         </li>
