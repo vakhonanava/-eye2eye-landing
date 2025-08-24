@@ -10,7 +10,7 @@ function Founders() {
         {/* Vakhtang */}
         <div className="founder">
           <a
-            href="www.linkedin.com/in/vakhtang-nanava" 
+            href="https://www.linkedin.com/in/vakhtang-nanava/"
             target="_blank"
             rel="noopener noreferrer"
             className="founder-link"
