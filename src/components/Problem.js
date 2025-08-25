@@ -36,7 +36,7 @@ function Problem() {
                 Visible improvement in <b>2 weeks</b>
               </li>
               <li>
-                <b>60% angle reduction</b> within 3 months
+                <b>60% angle reduction</b> within 6 months
               </li>
               <li>Safe, non-invasive, no side effects</li>
             </ul>
@@ -44,7 +44,7 @@ function Problem() {
 
           {/* Card 3 */}
           <div className="problem-card">
-            <h3>Surgery Support – Not a Competitor</h3>
+            <h3>Surgery Support  Not a Competitor</h3>
             <p>
               While Eye2Eye helps many patients avoid surgery, in cases of{" "}
               <b>nerve damage</b> surgery is sometimes required.
