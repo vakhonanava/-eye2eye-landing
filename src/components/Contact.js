@@ -6,8 +6,7 @@ export default function Contact() {
     <section
       id="contact"
       className="contact"
-      role="region"
-      aria-labelledby="contact-title"
+      aria-labelledby="contact-title" // საკმარისია, role="region" აღარ გვჭირდება
     >
       <div className="contact-inner">
         <p className="contact-eyebrow"></p>
@@ -20,10 +19,10 @@ export default function Contact() {
         </p>
 
         <div className="contact-cta">
-          {/* Primary CTA — Calendly ან შენი form route */}
+          {/* Primary CTA */}
           <a
             className="btn btn-primary"
-            href="mailto:eye2eyecompany@gmail.com" // ჩაანაცვლე რეალურით ან /#contact-form
+            href="mailto:eye2eyecompany@gmail.com"
             target="_blank"
             rel="noreferrer"
           >
