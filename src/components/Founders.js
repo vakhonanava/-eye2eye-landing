@@ -22,7 +22,7 @@ function Founders() {
             className="founder-link"
             aria-label="Open Vakhtang Nanava on LinkedIn"
           >
-            <img src="/image/IMG_5461.jpeg" alt="Vakhtang Nanava" />
+            <img src="/image/vakho photo.jpeg" alt="Vakhtang Nanava" />
           </a>
 
           {/* >>> აი აქ გადმოდის აიქონი – სურათის ქვეშ */}
