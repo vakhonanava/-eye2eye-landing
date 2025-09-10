@@ -97,7 +97,7 @@ Always follow your eyecare professional’s plan. Eye2Eye is designed to fit int
     title: "",
     read: "5 min read",
     cover: "/image/surgery.png",
-    excerpt: "",
+    excerpt: "how strabismus surgery works",
     content: `What does strabismus surgery do?
 Surgery relaxes or tightens one or more eye muscles so the eyes point to the same target again. The surgeon opens the thin tissue over the muscle, repositions the muscle on the sclera with tiny sutures (often adjustable), and centers the eyes based on measurements from clinic and the operating room. The goal is alignment and a better chance for the brain to use binocular vision.
 
@@ -118,11 +118,10 @@ Eye2Eye focuses on what happens after the operation: stabilizing binocular funct
   },
   {
     slug: "limitations-and-challenges",
-    title:
-      "",
+    title: "",
     read: "5 min read",
     cover: "/image/b.png",
-    excerpt: "",
+    excerpt: "Global Burden of Disease",
     content: `When we talk about the Global Burden of Disease (GBD), we’re adding up two things:
 
 • YLDs — Years Lived with Disability
@@ -158,6 +157,126 @@ Why this matters to payers and partners
 
 Bottom line
 GBD reminds us to chase the biggest wins. In eye health, that means cutting disability time  not debating mortality. Eye2Eye is designed for exactly that: less strain, better depth, steadier binocular vision, and more healthy years lived at full potential.
+`,
+  },
+  {
+    slug: "Diplopia",
+    title: "",
+    read: "5 min read",
+    cover: "/image/diplopia.png",
+    excerpt: "Diplopia-Double Vision",
+    content: `
+
+
+Double Vision
+When people think about vision problems, they often imagine blurred sight or needing glasses. But for those living with diplopia, or double vision, the world doesn’t just blur, it splits. Imagine trying to read a single line of text and seeing two. Or crossing the street, unsure which of the two cars is real. Imagine pouring water into a glass, but missing because the rim seems doubled. 
+
+This is diplopia.
+
+What is Diplopia?
+Diplopia occurs when the eyes do not align on the same target. The brain receives two different images and struggles to fuse them into one. Unlike blur, where detail is lost, diplopia creates confusion — two sharp images, competing for attention.
+
+Causes
+Diplopia is not a single condition but a symptom of underlying issues:
+
+
+
+Strabismus (misaligned eyes) — one of the most common causes.
+Nerve damage (cranial nerve palsy, stroke, trauma, thyroid eye disease).
+Post-surgical instability — when alignment does not hold over time.
+Systemic conditions such as diabetes or myasthenia gravis.
+
+The Patient Experience
+Diplopia is more than a visual inconvenience. Patients often describe:
+
+Severe eye strain and headaches
+Difficulty reading or working on a computer
+Insecurity in daily tasks — climbing stairs, driving, even walking
+Social withdrawal and lowered confidence, because the eyes “don’t look right”
+
+For children, the brain may respond by suppressing one image, but in adults, the conflict remains, making diplopia particularly disabling.
+
+Why Treatment is Difficult
+Surgery can align the eyes in some cases, but if the brain has not learned to fuse both images, diplopia may persist. Prism glasses can help temporarily, but they don’t restore binocular cooperation. And patching simply blocks vision, trading one problem for another.
+
+Where Innovation Matters
+This is exactly where Eye2Eye makes a difference.
+
+Instead of forcing one eye to shut down, Eye2Eye trains both eyes and the brain to work together. Short, guided, home-based sessions strengthen binocular function, reduce suppression, and support long-term stability.
+
+If there is no nerve damage, Eye2Eye can reduce or eliminate diplopia without surgery.
+If surgery is needed, Eye2Eye helps preserve alignment, preventing relapse and maintaining binocular fusion.
+
+The Bigger Picture
+Diplopia is not just about “seeing double.” It is about safety, productivity, and quality of life. It is about the frustration of living in a world where nothing quite lines up and the hope of finally bringing that world back into focus.
+
+
+
+Eye2Eye is building that hope into reality.
+`,
+  },
+  {
+    slug: "When",
+    title: "",
+    read: "5 min read",
+    cover: "/image/Whysurgery.jpg",
+    excerpt: "When Surgery Isn’t Enough",
+    content: `
+
+
+Did you know? Each failed strabismus surgery costs an average of $20,000 in the U.S. and around $5,000 in Georgia. And the probability that a second surgery will be required can reach as high as 60%.
+
+Strabismus is far from rare. It affects 4–5% of the global population — more than 250 million + people worldwide. For them, every day is a struggle between what their eyes deliver and what their brain can process. At first, surgery seems like the solution. The eyes are aligned, the mirror reflects hope, and life feels ready to begin again. But weeks or months later, many patients find the misalignment creeping back. That’s when the hardest words arrive: “Another surgery is needed… but I can’t promise how successful it will be.”
+
+After multiple operations, eye muscles may become too weak or shortened for further intervention. At that point, patients are often told: “There’s nothing more we can do.”
+
+
+
+The consequences can be devastating:
+
+Diplopia (double vision) — two sharp but conflicting images that make daily life chaotic.
+Amblyopia — the brain suppresses one eye, leading to reduced or lost vision.
+Blindness in one eye — permanent loss if amblyopia goes untreated. 
+Loss of depth perception — making walking, driving, sports, and even pouring a glass of water unsafe. 
+Chronic eye strain and headaches.Psychological burden — low self-esteem, social withdrawal, and increased risk of depression.
+
+
+
+This is the hidden toll of repeated surgeries: families spend years of savings, endure physical and emotional pain, and too often are left without a lasting solution.
+
+ Where Eye2Eye Changes the Story
+
+If there is no nerve damage, Eye2Eye can replace surgery entirely — safe, at home, non-invasive, and without stigma.
+If nerve damage is present and surgery is unavoidable, Eye2Eye becomes crucial in the postoperative phase. It consolidates the surgical result, reduces the risk of relapse, and trains the brain to keep both eyes working in synchrony.
+
+ A New Standard in Eye Care
+
+Surgery corrects the muscle. But only Eye2Eye teaches the brain to carry that correction into daily life. Eye2Eye is not just an alternative, it is a new standard. A path that gives people not only straight eyes, but also stable binocular vision, restored confidence, and the hope that this time, the results will truly last.
+`,
+  },
+  {
+    slug: "Strabismus",
+    title: "",
+    read: "5 min read",
+    cover: "/image/aa.jpeg",
+    excerpt: "Global Health & Market Challenge",
+    content: `
+
+At Eye2Eye, we believe the future of healthcare innovation lies at the intersection of economic impact and human dignity.
+
+Eye2Eye closes this critical gap:
+🔹 Replacing surgery when no nerve damage is present - safe, at-home, and non-invasive.
+🔹 Stabilizing surgical outcomes when nerve damage requires intervention, reducing recurrence rates and avoiding costly re-operations.
+🔹 Cutting disability time (YLDs) — helping patients return to work, school, and daily life faster and more effectively.
+
+For investors, this means:
+📈 A scalable medtech solution in a $200B global market opportunity.
+🌍 Worldwide applicability with strong reimbursement potential.
+💡 Alignment with Redesign Health’s mission: “to solve the biggest health challenges and rapidly advance human health.”
+
+For patients, this means more than straight eyes. It means lasting binocular vision, restored confidence, and true independence.
+
+👉 EYE2EYE Company isn’t just an alternative. It’s the new standard in eye care.
 `,
   },
 ];
