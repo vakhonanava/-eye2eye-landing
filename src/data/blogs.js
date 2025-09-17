@@ -279,6 +279,37 @@ For patients, this means more than straight eyes. It means lasting binocular vis
 👉 EYE2EYE Company isn’t just an alternative. It’s the new standard in eye care.
 `,
   },
+  {
+    slug: "🎮 Games vs Real Treatment in Strabismus and Amblyopia 👁️",
+    title: "",
+    read: "5 min read",
+    cover: "/image/play.png",
+    excerpt: "🎮 Games vs Real Treatment in Strabismus and Amblyopia 👁️",
+    content: `
+
+🎮 Games vs Real Treatment in Strabismus and Amblyopia 👁️
+
+In recent years, playful apps, vision games , have gained attention. They provide some level of binocular stimulation and can keep children engaged.
+
+But here’s the reality:
+
+❌ Many of these games rely on blurring or reducing contrast in the stronger eye to force the weaker one to work harder. While this may offer short-term stimulation, it risks weakening natural binocular cooperation.
+❌ They do not correct strabismus, the physical misalignment of the eye muscles.
+❌ They cannot reliably prevent long-term amblyopia, suppression may return once the games stop.
+
+✅ Eye2Eye takes a different path. It does not weaken the stronger eye. Instead, it delivers neuromuscular training that engages both eyes simultaneously. This restores balance between the eye muscles and teaches the brain to keep both eyes active, building stable, long-term binocular vision.
+
+Eye2Eye is not about temporary engagement. It is about durable outcomes:
+ • Clear binocular vision
+ • Reduced relapse risk
+ • Confidence and independence
+
+Games = short-lived stimulation.
+Eye2Eye = lasting treatment.
+
+👉 When it comes to strabismus and amblyopia, the world doesn’t need more games. It needs real solutions.
+`,
+  },
 ];
 
 export default blogs;
